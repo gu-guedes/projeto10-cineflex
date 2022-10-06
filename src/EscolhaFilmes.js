@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import Filme from "./Filme"
+import styled from "styled-components"
 export default function EscolhaFilmes() {
     const [filmes, setFilmes] = useState([])
 
@@ -23,12 +24,36 @@ export default function EscolhaFilmes() {
 
     return (
         <>
-            <div className="subtopo">
+            <Subtopo>
                 <h2>selecione o filme</h2>
-            </div>
-            <div className="container-filmes">
+            </Subtopo>
+            <ContainerFilmes>
                 {filmes.map((img) => <Filme key={img.id} img={img} />)}
-            </div>
+            </ContainerFilmes>
         </>
     )
 }
+
+const Subtopo = styled.div`
+    width: 375px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+    color:#293845;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    
+    }
+`
+const ContainerFilmes = styled.div`
+    width: 375px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+`
+

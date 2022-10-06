@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom"
-import Rodapé from "./Rodapé"
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Sessoes from "./Sessoes"
+import styled from "styled-components"
 
 
 export default function EscolhaSessao(){
     const[sessao, setSessao] = useState(undefined)
     const {idFilme} = useParams()
-    console.log(sessao)
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`)
@@ -27,32 +27,76 @@ export default function EscolhaSessao(){
 
     return(
         <>
-         <div className="subtopo">
+         <Subtopo>
             <h2>selecione o horário</h2>
-        </div>
-        <div className="sessao">
-            <p>quinta feira - 12/93/1000</p>
-            <div className="horarios"> 
-            <button>19:00</button>
-            <button>19:00</button>
+        </Subtopo>
+        {sessao.days.map((dias)  => <Sessoes key={dias.id} dias={dias}/>)}
+        <Rodape>
+            <Miniatura>
+                <img src={sessao.posterURL}></img>
+            </Miniatura>
+            <div>
+            <h1>{sessao.title}</h1>
+            <h1></h1>
             </div>
-        </div>
-        <div className="sessao">
-            <p>Quinta-feira - 24/06/2000</p>
-            <div className="horarios"> 
-            <button>15:00</button>
-            <button>19:00</button>
-            </div>
-        </div>
-       {/*  <div className="sessao">
-            <p>{sessao.days[0].weekday} - {sessao.days[0].date}</p>
-            <div className="horarios"> 
-            <button>{sessao.days[0].showtimes[0]}</button>
-            <button>{sessao.days[0].showtimes[1]}</button>
-            </div>
-        </div> */}
-        <Rodapé/>
+
+        </Rodape>
         </>
        
     )
 }
+
+const Subtopo = styled.div`
+    width: 375px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+    color:#293845;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    
+    }
+`
+const Rodape = styled.div`
+    position: fixed;
+    bottom: 0;
+    width: 375px;
+    height: 117px;
+    background-color: #DFE6ED;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    div > h1{
+        margin-left: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #293845;
+    }
+`
+const Miniatura = styled.div`
+    width: 64px;
+    height: 89px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+    width: 48px;
+    height: 72px;
+    }
+`
+/* const Resumo = styled.div`
+    margin-left: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #293845;
+` */

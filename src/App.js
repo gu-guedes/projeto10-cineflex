@@ -1,5 +1,4 @@
 import Topo from "./Topo";
-import Subtopo from "./Subtopo";
 import EscolhaFilmes from "./EscolhaFilmes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EscolhaSessao from "./EscolhaSessao";
