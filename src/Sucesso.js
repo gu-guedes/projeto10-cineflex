@@ -11,7 +11,7 @@ export default function Sucesso(props) {
             <p>{props.dadosFilmes.nome}</p>
             <p>{props.dadosFilmes.day} {props.dadosFilmes.hour}</p>
             <h2>Ingressos</h2>
-            <p>Assento </p>
+            <p>Assento</p>
             <p>Assento </p>
             <h2>Comprador:</h2>
             <p>Nome: {props.dados.name}</p>

@@ -19,6 +19,7 @@ export default function Assentos(props) {
     function selecionarAssento(numeroAssento) {
         if (!props.assentosSelecionados.includes(numeroAssento)) {
             props.setAssentosSelecionados([...props.assentosSelecionados, numeroAssento])
+            
         } else {
 
             const assentosFiltrados = props.assentosSelecionados.filter((assentoDaArray) => {

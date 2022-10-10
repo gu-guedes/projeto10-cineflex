@@ -4,13 +4,13 @@ export default function Sessoes(dias) {
     return (
         <>
             <Sessao>
-                <p> {dias.dias.weekday} - {dias.dias.date}</p>
+                <p data-identifier="session-date"> {dias.dias.weekday} - {dias.dias.date}</p>
                 <Horarios>
                     <Link to={`/assentos/${dias.dias.showtimes[0].id}`}>
-                        <button>{dias.dias.showtimes[0].name}</button>
+                        <button data-identifier="hour-minute-btn" >{dias.dias.showtimes[0].name}</button>
                         </Link>
                     <Link to={`/assentos/${dias.dias.showtimes[1].id}`}>
-                        <button>{dias.dias.showtimes[1].name}</button>
+                        <button data-identifier="hour-minute-btn" >{dias.dias.showtimes[1].name}</button>
                         </Link>
                 </Horarios>
             </Sessao>

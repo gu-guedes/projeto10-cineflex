@@ -5,8 +5,8 @@ export default function Filme({ img }) {
     
     return (
         <Link to={`/sessoes/${img.id}`}>
-            <CapaFilme>
-                <img src={img.posterURL} />
+            <CapaFilme >
+                <img data-identifier="movie-outdoor" src={img.posterURL} />
             </CapaFilme>
         </Link>
     )

@@ -7,8 +7,7 @@ import styled from "styled-components"
 export default function EscolhaAssentos(props) {
     const [assentos, setAssento] = useState(undefined)
     const { idSessao } = useParams()
-    const [assentosSelecionados, setAssentosSelecionados] = useState([])
-    /* const [ids, setIds] = useState([]) */
+
     const [name, setName] =  useState("")
     const [cpf, setCpf] =  useState("")
     const navigate = useNavigate()
@@ -25,7 +24,7 @@ export default function EscolhaAssentos(props) {
         props.setDadosFilmes(bodyFilme) 
         
         const body ={
-            ids: assentosSelecionados,
+            ids: props.assentosSelecionados,
             name: name,
             cpf: cpf
         }
@@ -74,7 +73,7 @@ export default function EscolhaAssentos(props) {
                 <h2>selecione o(s) assento(s)</h2>
             </Subtopo>
             <TodosAssentos>
-                {assentos.seats.map((a) => <Assentos key={a.id} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados} assento={a} />)}
+                {assentos.seats.map((a) => <Assentos key={a.id} assentosSelecionados={props.assentosSelecionados} setAssentosSelecionados={props.setAssentosSelecionados} assento={a} />)}
 
             </TodosAssentos>
             <ContainerLegendas>
