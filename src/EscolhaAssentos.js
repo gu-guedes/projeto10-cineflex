@@ -79,28 +79,28 @@ export default function EscolhaAssentos(props) {
             <ContainerLegendas>
                 <Legendas>
                     <StatusSelecionado></StatusSelecionado>
-                    <p>Selecionada</p>
+                    <p data-identifier="seat-selected-subtitle">Selecionada</p>
                 </Legendas>
                 <Legendas>
                     <StatusDisponivel></StatusDisponivel>
-                    <p>Disponível</p>
+                    <p data-identifier="seat-available-subtitle">Disponível</p>
                 </Legendas>
                 <Legendas>
                     <StatusIndisponivel></StatusIndisponivel>
-                    <p>Indisponível</p>
+                    <p data-identifier="seat-unavailable-subtitle" >Indisponível</p>
                 </Legendas>
             </ContainerLegendas>
             <form onSubmit={reservarAssento}>
             <DadosComprador>
                 <label htmlFor="name">Nome do comprador:</label>
-                <input 
+                <input data-identifier="buyer-name-input"
                 required
                 id ="name"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="  Digite seu nome..."></input>
                 <label htmlFor="cpf">CPF do comprador</label>
-                <input 
+                <input data-identifier="buyer-cpf-input"
                 required
                 id="cpf"
                 value={cpf}
@@ -108,7 +108,7 @@ export default function EscolhaAssentos(props) {
                 placeholder="  Digite seu CPF..."></input>
             </DadosComprador>
             <BotaoReservar type="submit">
-            <p>Reservar assento(s)</p>
+            <p data-identifier="reservation-btn">Reservar assento(s)</p>
             </BotaoReservar>
             </form>
             <Rodape>
@@ -116,8 +116,8 @@ export default function EscolhaAssentos(props) {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1bJX1gykk8reVpz8vaYc-qYaY18no7rp1Eg&usqp=CAU"></img>
                 </Miniatura>
                 <div>
-                    <h1>{assentos.movie.title}</h1>
-                    <h1>{assentos.day.weekday} - {assentos.name}</h1>
+                    <h1 data-identifier="movie-and-session-infos-preview">{assentos.movie.title}</h1>
+                    <h1 data-identifier="movie-and-session-infos-preview">{assentos.day.weekday} - {assentos.name}</h1>
                 </div>
 
             </Rodape>

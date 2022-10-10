@@ -33,7 +33,7 @@ export default function EscolhaSessao(){
         {sessao.days.map((dias)  => <Sessoes key={dias.id} dias={dias}/>)}
         <Rodape>
             <Miniatura>
-                <img src={sessao.posterURL}></img>
+                <img data-identifier="movie-img-preview" src={sessao.posterURL}></img>
             </Miniatura>
             <div>
             <h1>{sessao.title}</h1>

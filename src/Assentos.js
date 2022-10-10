@@ -52,7 +52,7 @@ export default function Assentos(props) {
     return (
         <>
             <Assento cor={classe} onClick={() => selecionarAssento(props.assento.id)}  >
-                <p>{props.assento.name}</p></Assento>
+                <p data-identifier="seat">{props.assento.name}</p></Assento>
         </>
     )
 

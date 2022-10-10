@@ -7,18 +7,18 @@ export default function Sucesso(props) {
             <h2>Pedido feito com sucesso!</h2>
         </Subtopo>
         <ContainerInfos>
-            <h2>Filme e sessão</h2>
-            <p>{props.dadosFilmes.nome}</p>
-            <p>{props.dadosFilmes.day} {props.dadosFilmes.hour}</p>
+            <h2 >Filme e sessão</h2>
+            <p data-identifier="movie-session-infos-reserve-finished">{props.dadosFilmes.nome}</p>
+            <p data-identifier="movie-session-infos-reserve-finished">{props.dadosFilmes.day} {props.dadosFilmes.hour}</p>
             <h2>Ingressos</h2>
-            <p>Assento</p>
-            <p>Assento </p>
+            <p data-identifier="seat-infos-reserve-finished">Assento</p>
+            <p data-identifier="seat-infos-reserve-finished">Assento </p>
             <h2>Comprador:</h2>
-            <p>Nome: {props.dados.name}</p>
-            <p>CPF: {props.dados.cpf}</p>
+            <p data-identifier="buyer-infos-reserve-finished">Nome: {props.dados.name}</p>
+            <p >CPF: {props.dados.cpf}</p>
         </ContainerInfos>
         <BotaoReservar>
-                <Link to="/"><p>Voltar pra Home</p></Link>
+                <Link to="/"><p data-identifier="back-to-home-btn">Voltar pra Home</p></Link>
             </BotaoReservar>
 
         </>
