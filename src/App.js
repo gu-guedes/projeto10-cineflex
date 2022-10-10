@@ -5,8 +5,13 @@ import EscolhaSessao from "./EscolhaSessao";
 import EscolhaAssentos from "./EscolhaAssentos";
 import Sucesso from "./Sucesso";
 import GlobalStyle from "./GlobalStyle";
+import { useState } from "react";
 
 export default function App() {
+    const [dados, setDados] = useState({})
+    console.log(dados)
+    const [dadosFilmes, setDadosFilmes] =  useState({})
+    console.log(dadosFilmes)
     return (
         <BrowserRouter>
         <GlobalStyle/>
@@ -14,8 +19,8 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<EscolhaFilmes/>}/>
                 <Route path="/sessoes/:idFilme" element={<EscolhaSessao/>}/>
-                <Route path="/assentos/:idSessao" element={<EscolhaAssentos/>}/>
-                <Route path="/sucesso" element={<Sucesso/>}/>
+                <Route path="/assentos/:idSessao" element={<EscolhaAssentos dados={dados} setDados={setDados} dadosFilmes={dadosFilmes} setDadosFilmes={setDadosFilmes}/>}/>
+                <Route path="/sucesso" element={<Sucesso dados={dados} setDados={setDados} dadosFilmes={dadosFilmes} setDadosFilmes={setDadosFilmes}/>}/>
             </Routes> 
             
         </BrowserRouter>

@@ -1,5 +1,6 @@
 import styled from "styled-components"
-export default function Sucesso() {
+import { Link } from "react-router-dom"
+export default function Sucesso(props) {
     return (
         <>
         <Subtopo>
@@ -7,17 +8,17 @@ export default function Sucesso() {
         </Subtopo>
         <ContainerInfos>
             <h2>Filme e sessão</h2>
-            <p>Enola Filmes</p>
-            <p>Quinta-feira  14:00</p>
+            <p>{props.dadosFilmes.nome}</p>
+            <p>{props.dadosFilmes.day} {props.dadosFilmes.hour}</p>
             <h2>Ingressos</h2>
-            <p>Assento 15</p>
-            <p>Assento 16</p>
+            <p>Assento </p>
+            <p>Assento </p>
             <h2>Comprador:</h2>
-            <p>Nome: Joae da silva</p>
-            <p>CPF: 92184774747</p>
+            <p>Nome: {props.dados.name}</p>
+            <p>CPF: {props.dados.cpf}</p>
         </ContainerInfos>
         <BotaoReservar>
-                <p>Voltar pra Home</p>
+                <Link to="/"><p>Voltar pra Home</p></Link>
             </BotaoReservar>
 
         </>

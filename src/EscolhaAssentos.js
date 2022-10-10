@@ -1,13 +1,54 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Assentos from "./Assentos"
 import styled from "styled-components"
-export default function EscolhaAssentos() {
+
+export default function EscolhaAssentos(props) {
     const [assentos, setAssento] = useState(undefined)
     const { idSessao } = useParams()
     const [assentosSelecionados, setAssentosSelecionados] = useState([])
-    console.log(assentosSelecionados)
+    /* const [ids, setIds] = useState([]) */
+    const [name, setName] =  useState("")
+    const [cpf, setCpf] =  useState("")
+    const navigate = useNavigate()
+    
+
+    function reservarAssento(e){
+        e.preventDefault()
+        const bodyFilme = {
+            nome: assentos.movie.title,
+            day: assentos.day.weekday,
+            hour: assentos.name
+    
+        }
+        props.setDadosFilmes(bodyFilme) 
+        
+        const body ={
+            ids: assentosSelecionados,
+            name: name,
+            cpf: cpf
+        }
+        props.setDados(body)
+        
+        
+        const promise = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', body)
+        
+        promise.then((res) => {
+            console.log(res.data)
+        
+            
+            navigate("/sucesso")
+         
+
+        })
+
+        promise.catch((err) => {
+            console.log(err.response.data)
+        })
+           
+
+    }
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`)
@@ -50,15 +91,27 @@ export default function EscolhaAssentos() {
                     <p>Indisponível</p>
                 </Legendas>
             </ContainerLegendas>
+            <form onSubmit={reservarAssento}>
             <DadosComprador>
-                <p>Nome do comprador:</p>
-                <input placeholder="  Digite seu nome..."></input>
-                <p>CPF do comprador</p>
-                <input placeholder="  Digite seu CPF..."></input>
+                <label htmlFor="name">Nome do comprador:</label>
+                <input 
+                required
+                id ="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                placeholder="  Digite seu nome..."></input>
+                <label htmlFor="cpf">CPF do comprador</label>
+                <input 
+                required
+                id="cpf"
+                value={cpf}
+                onChange={e => setCpf(e.target.value)}
+                placeholder="  Digite seu CPF..."></input>
             </DadosComprador>
-            <BotaoReservar>
-                <p>Reservar assento(s)</p>
+            <BotaoReservar type="submit">
+            <p>Reservar assento(s)</p>
             </BotaoReservar>
+            </form>
             <Rodape>
                 <Miniatura>
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1bJX1gykk8reVpz8vaYc-qYaY18no7rp1Eg&usqp=CAU"></img>
@@ -138,7 +191,7 @@ const DadosComprador = styled.div`
     padding: 24px 24px;
     box-sizing: border-box;
     
-    p{
+    label{
     font-weight: 400;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
