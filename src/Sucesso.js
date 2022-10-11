@@ -1,6 +1,14 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 export default function Sucesso(props) {
+    console.log(props.nomes)
+    function zerarPedido(){
+        props.setAssentosSelecionados([])
+        props.setNomes([])
+        props.setDados({})
+        props.setDadosFilmes({})
+
+    }
     return (
         <>
         <Subtopo>
@@ -11,14 +19,13 @@ export default function Sucesso(props) {
             <p data-identifier="movie-session-infos-reserve-finished">{props.dadosFilmes.nome}</p>
             <p data-identifier="movie-session-infos-reserve-finished">{props.dadosFilmes.day} {props.dadosFilmes.hour}</p>
             <h2>Ingressos</h2>
-            <p data-identifier="seat-infos-reserve-finished">Assento</p>
-            <p data-identifier="seat-infos-reserve-finished">Assento </p>
+            {props.nomes.map((n) => <p>Assento {n}</p>)}
             <h2>Comprador:</h2>
             <p data-identifier="buyer-infos-reserve-finished">Nome: {props.dados.name}</p>
             <p >CPF: {props.dados.cpf}</p>
         </ContainerInfos>
         <BotaoReservar>
-                <Link to="/"><p data-identifier="back-to-home-btn">Voltar pra Home</p></Link>
+                <Link to="/"><p onClick={zerarPedido} data-identifier="back-to-home-btn">Voltar pra Home</p></Link>
             </BotaoReservar>
 
         </>

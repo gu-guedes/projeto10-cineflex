@@ -16,10 +16,10 @@ export default function Assentos(props) {
         }
     }, [])
 
-    function selecionarAssento(numeroAssento) {
+    function selecionarAssento(numeroAssento, nomeAssento) {
         if (!props.assentosSelecionados.includes(numeroAssento)) {
             props.setAssentosSelecionados([...props.assentosSelecionados, numeroAssento])
-            
+            props.setNomes([...props.nomes, nomeAssento]) 
         } else {
 
             const assentosFiltrados = props.assentosSelecionados.filter((assentoDaArray) => {
@@ -30,6 +30,16 @@ export default function Assentos(props) {
                 }
             })
             props.setAssentosSelecionados(assentosFiltrados)
+
+            const nomesFiltrados = props.nomes.filter((nomeDaArray) => {
+                if (nomeDaArray !== nomeAssento) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            props.setNomes(nomesFiltrados)
+            
         }
 
 
@@ -51,7 +61,7 @@ export default function Assentos(props) {
 
     return (
         <>
-            <Assento cor={classe} onClick={() => selecionarAssento(props.assento.id)}  >
+            <Assento cor={classe} onClick={() => selecionarAssento(props.assento.id, props.assento.name)}  >
                 <p data-identifier="seat">{props.assento.name}</p></Assento>
         </>
     )

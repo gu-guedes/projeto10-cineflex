@@ -36,9 +36,12 @@ export default function EscolhaAssentos(props) {
         promise.then((res) => {
             console.log(res.data)
         
-            
             navigate("/sucesso")
-         
+           /*  setTimeout(() => {props.setAssentosSelecionados([])
+            props.setNomes([])
+            props.setDados({})
+            props.setDadosFilmes({})} , 1000) */
+          
 
         })
 
@@ -53,7 +56,7 @@ export default function EscolhaAssentos(props) {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`)
 
         promise.then((res) => {
-            console.log(res.data)
+            
             setAssento(res.data)
         })
         promise.catch((err) => {
@@ -73,7 +76,7 @@ export default function EscolhaAssentos(props) {
                 <h2>selecione o(s) assento(s)</h2>
             </Subtopo>
             <TodosAssentos>
-                {assentos.seats.map((a) => <Assentos key={a.id} assentosSelecionados={props.assentosSelecionados} setAssentosSelecionados={props.setAssentosSelecionados} assento={a} />)}
+                {assentos.seats.map((a) => <Assentos key={a.id} nomes={props.nomes} setNomes={props.setNomes}assentosSelecionados={props.assentosSelecionados} setAssentosSelecionados={props.setAssentosSelecionados} assento={a} />)}
 
             </TodosAssentos>
             <ContainerLegendas>
