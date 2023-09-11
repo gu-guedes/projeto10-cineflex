@@ -15,6 +15,7 @@ Foram usadas as seguintes ferramentas e frameworks:
 
 ## Como rodar
 1- Clonar este repositório
+
 2- Instalar dependências
 ### `npm i`
 3- Rodar o front-end
