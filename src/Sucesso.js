@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 export default function Sucesso(props) {
-    console.log(props.nomes)
     function zerarPedido(){
         props.setAssentosSelecionados([])
         props.setNomes([])

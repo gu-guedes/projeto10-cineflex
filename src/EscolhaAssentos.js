@@ -34,15 +34,7 @@ export default function EscolhaAssentos(props) {
         const promise = axios.post('https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many', body)
         
         promise.then((res) => {
-            console.log(res.data)
-        
             navigate("/sucesso")
-           /*  setTimeout(() => {props.setAssentosSelecionados([])
-            props.setNomes([])
-            props.setDados({})
-            props.setDadosFilmes({})} , 1000) */
-          
-
         })
 
         promise.catch((err) => {

@@ -6,13 +6,11 @@ export default function Assentos(props) {
     const [assentoDisponivel, setAssentoDisponivel] = useState(props.assento.isAvailable)
     const [classe, setClasse] = useState("")
 
-
-
     useEffect(() => {
         if (assentoDisponivel === true) {
-            setClasse("#C3CFD9") //disponivel
+            setClasse("#C3CFD9") 
         } else {
-            setClasse("#FBE192")//indisponivel
+            setClasse("#FBE192")
         }
     }, [])
 
@@ -43,18 +41,14 @@ export default function Assentos(props) {
         }
 
 
-
         if (assentoDisponivel === true) {
-            setClasse("#1AAE9E")// adiciona selecionado
+            setClasse("#1AAE9E")
         } else {
-            alert('assento esta indisponivel') // nao adiciona selecionado
+            alert('assento esta indisponivel') 
         }
 
         if (classe === "#1AAE9E") {
             setClasse("#C3CFD9")
-
-
-            /* props.setAssentosSelecionados(props.assentosSelecionados.indexOf(props.assentosSelecionados.length - 1))  */
 
         }
     }

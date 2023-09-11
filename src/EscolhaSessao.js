@@ -13,7 +13,6 @@ export default function EscolhaSessao(){
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`)
 
         promise.then((res) => {
-            console.log(res.data)
             setSessao(res.data)
         })
         promise.catch((err) => {
