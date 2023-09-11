@@ -20,3 +20,4 @@ Foram usadas as seguintes ferramentas e frameworks:
 ### `npm i`
 3- Rodar o front-end
 ### `npm start`
+4- Por fim acesse http://localhost:3000 no seu navegador preferido (desde que não seja o Explorer).
