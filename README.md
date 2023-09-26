@@ -1,5 +1,6 @@
 ### CINEFLEX
 ![Peek 26-09-2023 09-24](https://github.com/gu-guedes/projeto10-cineflex/assets/111058685/742146a3-17a6-4ccf-94ea-94c04b727f48)
+
 Aplicação front end com intuito de escolher filme, assento e sessão para assistir no cinema.
 
 ## Sobre
