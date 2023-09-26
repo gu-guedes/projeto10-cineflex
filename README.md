@@ -3,6 +3,7 @@
 
 
 Aplicação front end com intuito de escolher filme, assento e sessão para assistir no cinema.
+
 Pode acessar pelo link: https://projeto10-cineflex-omee-hnppbgwsh-gu-guedes.vercel.app/
 
 ## Sobre
